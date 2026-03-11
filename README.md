@@ -39,6 +39,9 @@
   Параметры: `?mode=expired` или `?mode=inactive&inactive_days=30`  
   Только для авторизованного пользователя (удаляются только его ссылки)
 
+- **GET /links/{short_code}/qr** — создание QR-кода для ссылки    
+  Только для авторизованного пользователя
+
 ## Примеры запросов
 
 1. **Регистрация**
@@ -106,6 +109,7 @@ expires_at (timestamp, nullable)
 clicks (integer, default 0)
 last_clicked (timestamp, nullable)
 owner_id (integer, foreign key → users.id, nullable)
+
 
 
 Кэширование (Redis) применяется к original_url и статистике для ускорения редиректа и получения stats.
